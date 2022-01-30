@@ -1,6 +1,6 @@
 {
   "name": "@vinsjo/is-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal package for simple type-checks of basic types",
   "main": "index.js",
   "repository": {
