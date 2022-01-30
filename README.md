@@ -6,7 +6,7 @@ Package is bundled using [microbundle](https://www.npmjs.com/package/microbundle
 
 ## Installation
 
-    npm install @vinsjo/is-type
+`npm install @vinsjo/is-type`
 
 ### In Node.js
 
