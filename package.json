@@ -1,5 +1,5 @@
 {
-  "name": "is-type",
+  "name": "@vinsjo/is-type",
   "version": "1.0.0",
   "description": "A minimal package for simple type-checks of basic types",
   "main": "index.js",

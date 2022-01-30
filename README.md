@@ -1,10 +1,10 @@
-# is-type
+# @vinsjo/is-type
 
 `is-type` is a minimal package for simple type-checks of basic types.
 
 ## Installation
 
-    npm install is-type
+    npm install @vinsjo/is-type
 
 ## Available Functions
 
