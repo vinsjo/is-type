@@ -2,15 +2,32 @@
   "name": "@vinsjo/is-type",
   "version": "1.0.2",
   "description": "A minimal package for simple type-checks of basic types",
-  "main": "index.js",
+  "type": "module",
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "microbundle": "^0.14.2"
+  },
+  "author": "Vincent Sjögren",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/vinsjo/is-type"
   },
   "keywords": [
-    "javascript",
+    "ESM",
+    "CommonJS",
     "typecheck"
-  ],
-  "author": "Vincent Sjögren",
-  "license": "MIT"
+  ]
 }
