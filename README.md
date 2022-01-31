@@ -11,10 +11,12 @@ Package is bundled using [microbundle](https://www.npmjs.com/package/microbundle
 ### In Node.js
 
 ```js
-// CommonJS
-const { isNum, isStr, isObj } = require('x-is-type');
-// ESM
+// ESM:
 import { isNum, isStr, isObj } from 'x-is-type';
+// CommonJS:
+const x = require('x-is-type');
+// or:
+const { isNum, isStr, isObj } = require('x-is-type');
 ```
 
 ## Usage
