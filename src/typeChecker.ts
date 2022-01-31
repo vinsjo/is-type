@@ -1,7 +1,8 @@
 /**
  * Create a type-checker function.
  * Returns a function that accepts any number of values and returns
- * true if all values result in a truthy return value by the validatorFn
+ * true if all values result in a truthy return value when passed to the
+ * 'checkerCallback' function
  *
  * @example
  * const isStr = createTypeChecker((x) => typeof x === 'string');
