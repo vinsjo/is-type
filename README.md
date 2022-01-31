@@ -1,20 +1,20 @@
-# @vinsjo/is-type
+# x-is-type
 
-`@vinsjo/is-type` is a minimal package for simple type-checks of basic types.
+`x-is-type` is a minimal package for simple type-checks of basic types.
 
 Package is bundled using [microbundle](https://www.npmjs.com/package/microbundle)
 
 ## Installation
 
-`npm install @vinsjo/is-type`
+`npm i x-is-type`
 
 ### In Node.js
 
 ```js
 // CommonJS
-const { isNum, isStr, isObj } = require('@vinsjo/is-type');
+const { isNum, isStr, isObj } = require('x-is-type');
 // ESM
-import { isNum, isStr, isObj } from '@vinsjo/is-type';
+import { isNum, isStr, isObj } from 'x-is-type';
 ```
 
 ## Usage
@@ -22,39 +22,39 @@ import { isNum, isStr, isObj } from '@vinsjo/is-type';
 This package includes the following functions for type checking of one or more variables:
 
 ```js
-/** Check if value(s) is of type 'number' and not NaN */
+/** Check if value(s) are of type 'number' and not NaN */
 isNum(1);
 // => true
 
-/** Check if value(s) is of type 'number', not NaN and an integer */
+/** Check if value(s) are of type 'number', not NaN and integer value(s) */
 isInt(1);
 // => true
 
-/** Check if value(s) is of type 'number', not NaN and not an integer */
+/** Check if value(s) are of type 'number', not NaN and float value(s) */
 isFloat(1.1);
 // => true
 
-/** Check if value(s) is of type 'string' */
+/** Check if value(s) are of type 'string' */
 isStr('Hello');
 // => true
 
-/** Check if value(s) is of type 'boolean' */
+/** Check if value(s) are of type 'boolean' */
 isBool(false);
 // => true
 
-/** Check if value(s) is of type 'object' and an Object instance */
+/** Check if value(s) are of type 'object' and instance(s) of Object constructor */
 isObj({ foo: 'bar' });
 // => true
 
-/** Check if value(s) are array(s), just a shorter version of Array.isArray */
+/** Check if value(s) are array(s), (uses Array.isArray) */
 isArr([1, 2, 3]);
 // => true
 
-/** Check if value(s) is of type 'function' */
+/** Check if value(s) are of type 'function' */
 isFn(() => {});
 // => true
 
-/** Check if value(s) is equal to null */
+/** Check if value(s) are equal to null */
 isNull(null);
 // => true
 
@@ -63,11 +63,12 @@ isUndef(undefined);
 // => true
 ```
 
-All of the built in functions are created using `createTypeChecker`.
+All of the built in functions are created using [`createTypeChecker`](https://github.com/vinsjo/x-is-type/blob/main/src/typeChecker.ts).
 
 Example:
 
 ```js
+// This is how 'isStr' is initialized
 const isStr = createTypeChecker((x) => typeof x === 'string');
 
 isStr('Hello');
