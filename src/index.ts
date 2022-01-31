@@ -21,9 +21,13 @@ const isObj = createTypeChecker(
 	(x: any) => typeof x === 'object' && x instanceof Object
 );
 /** Check if value(s) are array(s), just a shorter version of Array.isArray */
-const isArr = createTypeChecker((x: any) => Array.isArray(x));
+const isArr = createTypeChecker(Array.isArray);
 /** Check if value(s) is of type 'function' */
 const isFn = createTypeChecker((x: any) => typeof x === 'function');
+/** Check if value(s) is equal to null */
+const isNull = createTypeChecker((x) => x === null);
+/** Check if value(s) are undefined */
+const isUndef = createTypeChecker((x) => typeof x === 'undefined');
 
 export {
 	createTypeChecker,
@@ -35,4 +39,6 @@ export {
 	isObj,
 	isArr,
 	isFn,
+	isNull,
+	isUndef,
 };

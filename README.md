@@ -53,6 +53,14 @@ isArr([1, 2, 3]);
 /** Check if value(s) is of type 'function' */
 isFn(() => {});
 // => true
+
+/** Check if value(s) is equal to null */
+isNull(null);
+// => true
+
+/** Check if value(s) are undefined */
+isUndef(undefined);
+// => true
 ```
 
 All of the built in functions are created using `createTypeChecker`.
