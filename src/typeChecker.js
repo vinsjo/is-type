@@ -4,6 +4,8 @@
  * true if all values result in a truthy return value when passed to the
  * 'checkerCallback' function
  *
+ * @param {Function} testerFunction
+ *
  * @example
  * const isStr = createTypeChecker((x) => typeof x === 'string');
  * isStr('Hello');
@@ -15,14 +17,8 @@
  * isStr('Hello', 1);
  * // => false
  */
-function createTypeChecker(
-	checkerCallback: (x: any) => Boolean
-): (...values: any) => Boolean {
-	return (...values: any) => {
-		if (values.length <= 1) return checkerCallback(values[0]);
-		return values.reduce((result: boolean, current: any) => {
-			return result && checkerCallback(current);
-		}, true);
-	};
+function createTypeChecker(testerFunction) {
+	return (...values) => values.every(testerFunction);
 }
+
 export { createTypeChecker };
