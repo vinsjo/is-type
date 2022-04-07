@@ -3,15 +3,15 @@
   "version": "1.0.4",
   "description": "A minimal package for simple type-checks of basic types",
   "type": "module",
-  "source": "src/index.js",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
+  "source": "./src/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "umd:main": "./dist/index.umd.js",
   "exports": {
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
