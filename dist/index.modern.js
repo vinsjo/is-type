@@ -1,0 +1,2 @@
+function e(e){return(...o)=>o.every(e)}const o=e(e=>"number"==typeof e&&!Number.isNaN(e)),t=e(e=>"number"==typeof e&&!Number.isNaN(e)&&e%1==0),r=e(e=>"number"==typeof e&&!Number.isNaN(e)&&e%1!=0),n=e(e=>"string"==typeof e),f=e(e=>"boolean"==typeof e),u=e(e=>"object"==typeof e&&e instanceof Object),y=e(Array.isArray),b=e(e=>"function"==typeof e),i=e(e=>null===e),N=e(e=>void 0===e);export{e as createTypeChecker,y as isArr,f as isBool,r as isFloat,b as isFn,t as isInt,i as isNull,o as isNum,u as isObj,n as isStr,N as isUndef};
+//# sourceMappingURL=index.modern.js.map
