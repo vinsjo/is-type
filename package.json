@@ -3,12 +3,12 @@
   "version": "1.0.14",
   "description": "A minimal package for simple type-checks of basic types",
   "type": "module",
-  "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.m.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "umd:main": "./dist/index.umd.js",
   "exports": {
     "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs",
     "default": "./dist/index.modern.js"
   },
   "types": "./dist/index.d.ts",
@@ -19,8 +19,7 @@
     "prepublishOnly": "npm run update-browserlist && npm run build"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "devDependencies": {
     "microbundle": "^0.14.2"

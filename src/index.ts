@@ -3,7 +3,8 @@ export type typeChecker = (...values: any[]) => boolean;
 
 /** Create typeChecker function */
 const createTypeChecker = (validatorFn: typeValidator): typeChecker => {
-	return (...values) => values.every(validatorFn);
+	return (...values) =>
+		values.length > 0 && values.every((x) => validatorFn(x));
 };
 /** Check if value(s) are of type 'number' and not NaN */
 const isNum = createTypeChecker(
