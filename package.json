@@ -17,6 +17,9 @@
     "dev": "microbundle watch",
     "prepublishOnly": "npm run build"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "microbundle": "^0.14.2"
   },
