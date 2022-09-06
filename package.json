@@ -3,7 +3,7 @@
   "version": "1.0.9",
   "description": "A minimal package for simple type-checks of basic types",
   "type": "module",
-  "source": "./src/index.js",
+  "source": "./src/index.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.m.js",
   "umd:main": "./dist/index.umd.js",
@@ -14,7 +14,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "microbundle": "^0.14.2"
