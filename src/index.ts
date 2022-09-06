@@ -39,7 +39,10 @@ const isDate = createTypeChecker((x) => x instanceof Date);
 const isValidDate = createTypeChecker(
 	(x) => x instanceof Date && !isNaN(Number(x))
 );
-
+/** Check if value(s) are "truthy" */
+const isTruthy = createTypeChecker((x) => !!x);
+/** Check if value(s) are "falsy" */
+const isFalsy = createTypeChecker((x) => !x);
 export {
 	createTypeChecker,
 	isNum,
@@ -54,4 +57,6 @@ export {
 	isUndef,
 	isDate,
 	isValidDate,
+	isTruthy,
+	isFalsy,
 };

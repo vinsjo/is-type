@@ -26,4 +26,8 @@ declare const isUndef: typeChecker;
 declare const isDate: typeChecker;
 /** Check if value(s) are valid Date objects */
 declare const isValidDate: typeChecker;
-export { createTypeChecker, isNum, isInt, isFloat, isStr, isBool, isObj, isArr, isFn, isNull, isUndef, isDate, isValidDate, };
+/** Check if value(s) are "truthy" */
+declare const isTruthy: typeChecker;
+/** Check if value(s) are "falsy" */
+declare const isFalsy: typeChecker;
+export { createTypeChecker, isNum, isInt, isFloat, isStr, isBool, isObj, isArr, isFn, isNull, isUndef, isDate, isValidDate, isTruthy, isFalsy, };
