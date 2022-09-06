@@ -13,12 +13,14 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "npx browserslist@latest --update-db -y && microbundle",
+    "build": "microbundle",
     "dev": "microbundle watch",
-    "prepublishOnly": "npm run build"
+    "update-browserlist": "npx browserslist@latest --update-db -y",
+    "prepublishOnly": "npm run update-browserlist && npm run build"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "devDependencies": {
     "microbundle": "^0.14.2"
