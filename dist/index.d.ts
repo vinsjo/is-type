@@ -1,33 +1,36 @@
-export declare type typeValidator = (x: any) => boolean;
-export declare type typeChecker = (...values: any[]) => boolean;
+export declare type ValidatorCallback = (x: any) => boolean;
+export declare type Validator = (...args: any[]) => ReturnType<ValidatorCallback>;
 /** Create typeChecker function */
-declare const createTypeChecker: (validatorFn: typeValidator) => typeChecker;
+export declare const createTypeChecker: (callback: ValidatorCallback) => Validator;
 /** Check if value(s) are of type 'number' and not NaN */
-declare const isNum: typeChecker;
+export declare const isNum: Validator;
+/** Check if value(s) are of type 'number',
+ * smaller than Infinity, larger than -Infinity and not NaN
+ */
+export declare const isFinite: Validator;
 /** Check if value(s) are of type 'number', not NaN and integer value(s) */
-declare const isInt: typeChecker;
+export declare const isInt: Validator;
 /** Check if value(s) are of type 'number', not NaN and float value(s) */
-declare const isFloat: typeChecker;
+export declare const isFloat: Validator;
 /** Check if value(s) are of type 'string' */
-declare const isStr: typeChecker;
+export declare const isStr: Validator;
 /** Check if value(s) are of type 'boolean' */
-declare const isBool: typeChecker;
-/** Check if value(s) are of type 'object' and instance(s) of Object constructor */
-declare const isObj: typeChecker;
+export declare const isBool: Validator;
+/** Check if value(s) are of type 'object' and instance(s) of Object export constructor */
+export declare const isObj: Validator;
 /** Check if value(s) are array(s), (uses Array.isArray) */
-declare const isArr: typeChecker;
+export declare const isArr: Validator;
 /** Check if value(s) are of type 'function' */
-declare const isFn: typeChecker;
+export declare const isFn: Validator;
 /** Check if value(s) are equal to null */
-declare const isNull: typeChecker;
+export declare const isNull: Validator;
 /** Check if value(s) are undefined */
-declare const isUndef: typeChecker;
+export declare const isUndef: Validator;
 /** Check if value(s) are Date objects */
-declare const isDate: typeChecker;
+export declare const isDate: Validator;
 /** Check if value(s) are valid Date objects */
-declare const isValidDate: typeChecker;
+export declare const isValidDate: Validator;
 /** Check if value(s) are "truthy" */
-declare const isTruthy: typeChecker;
+export declare const isTruthy: Validator;
 /** Check if value(s) are "falsy" */
-declare const isFalsy: typeChecker;
-export { createTypeChecker, isNum, isInt, isFloat, isStr, isBool, isObj, isArr, isFn, isNull, isUndef, isDate, isValidDate, isTruthy, isFalsy, };
+export declare const isFalsy: Validator;
