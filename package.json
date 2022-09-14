@@ -16,10 +16,13 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "update-browserlist": "npx browserslist@latest --update-db -y",
+    "lint": "npx eslint src --ext .ts",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
     "microbundle": "^0.14.2"
   },
   "author": "Vincent Sjögren",
