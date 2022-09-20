@@ -4,17 +4,25 @@
   "description": "A minimal package for simple type-checks of basic types",
   "type": "module",
   "source": "./src/index.ts",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "umd:main": "./dist/index.umd.js",
   "exports": {
-    "require": "./dist/index.cjs",
-    "import": "./dist/index.mjs",
-    "default": "./dist/index.modern.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.modern.js"
+    },
+    "./callbacks": {
+      "types": "./dist/callbacks.d.ts",
+      "require": "./dist/callbacks.cjs",
+      "import": "./dist/callbacks.mjs",
+      "default": "./dist/callbacks.modern.js"
+    }
   },
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle src/*.ts",
     "dev": "microbundle watch",
     "lint": "npx eslint src --ext .ts",
     "prepublishOnly": "npm run build"
@@ -24,10 +32,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "eslint": "^8.23.1",
-    "microbundle": "^0.14.2"
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "microbundle": "latest"
   },
   "author": "Vincent Sjögren",
   "license": "MIT",

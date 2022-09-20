@@ -12,6 +12,7 @@ template/node_modules
 dist
 dist-ssr
 *.local
+test.js
 
 # Editor directories and files
 .vscode/*

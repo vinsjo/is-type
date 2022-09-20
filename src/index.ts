@@ -1,63 +1,56 @@
-export type ValidatorCallback = (x?: unknown) => boolean;
+import * as callbacks from './callbacks';
+export * as callbacks from './callbacks';
 
 /** Create typeChecker function */
-export const createTypeChecker = (callback: ValidatorCallback) => {
-	return (...args: unknown[]) =>
-		args.length < 2 ? callback(args[0]) : args.every((x) => callback(x));
+export const createTypeChecker = <T = unknown>(
+	callback: callbacks.Validator<T>
+) => {
+	return (...values: unknown[]) =>
+		values.length < 2
+			? callback(values[0])
+			: values.every((x) => callback(x));
 };
-/** Check if typeof value(s) is 'number' and value(s) are not NaN */
-export const isNum = createTypeChecker(
-	(x?: unknown) => typeof x === 'number' && !Number.isNaN(x)
-);
-/** Check if typeof value(s) is 'number', value(s) are not NaN,
- * value(s) are not -Infinite or Infinite
+/** Check if typeof all values is 'number' and not NaN */
+export const isNum = createTypeChecker(callbacks.isNum);
+/**
+ * Check if typeof all values is 'number',
+ * not NaN and integers
  */
-export const isFiniteNum = createTypeChecker(
-	(x?: unknown) => typeof x === 'number' && !Number.isNaN(x) && isFinite(x)
-);
-/** Check if typeof value(s) is 'number', value(s) are not
- * NaN, value(s) are finite number(s) and integer value(s)
+export const isInt = createTypeChecker(callbacks.isInt);
+/**
+ * Check if typeof all values is 'number',
+ * not NaN and floating point numbers
  */
-export const isInt = createTypeChecker(
-	(x?: unknown) =>
-		typeof x === 'number' && !Number.isNaN(x) && isFinite(x) && x % 1 === 0
-);
-/** Check if typeof value(s) is 'number', value(s) are not
- * NaN, value(s) are finite numbers and float value(s)
+export const isFloat = createTypeChecker(callbacks.isFloat);
+/** Check if typeof all values is 'string' */
+export const isStr = createTypeChecker(callbacks.isStr);
+/** Check if typeof all values is 'boolean' */
+export const isBool = createTypeChecker(callbacks.isBool);
+/**
+ * Check if typeof all values is 'object',
+ * not null and instances of ObjectConstructor
  */
-export const isFloat = createTypeChecker(
-	(x?: unknown) =>
-		typeof x === 'number' && !Number.isNaN(x) && isFinite(x) && x % 1 !== 0
-);
-/** Check if typeof value(s) is 'string' */
-export const isStr = createTypeChecker((x?: unknown) => typeof x === 'string');
-/** Check if typeof value(s) is 'boolean' */
-export const isBool = createTypeChecker(
-	(x?: unknown) => typeof x === 'boolean'
-);
-/** Check if value(s) are not null and typeof value(s) is 'object' */
-export const isObj = createTypeChecker(
-	(x?: unknown) => x !== null && typeof x === 'object'
-);
-/** Check if value(s) are array(s), (uses Array.isArray) */
-export const isArr = createTypeChecker(Array.isArray);
-/** Check if typeof value(s) is 'function' */
-export const isFn = createTypeChecker((x?: unknown) => typeof x === 'function');
-/** Check if value(s) are null */
-export const isNull = createTypeChecker((x?: unknown) => x === null);
-/** Check if value(s) are undefined */
-export const isUndef = createTypeChecker((x?: unknown) => x === undefined);
-/** Check if value(s) are Date objects */
-export const isDate = createTypeChecker((x?: unknown) => x instanceof Date);
-/** Check if value(s) are valid Date objects */
-export const isValidDate = createTypeChecker(
-	(x?: unknown) => x instanceof Date && !Number.isNaN(x.valueOf())
-);
-/** Check if typeof value(s) is 'symbol' */
-export const isSymbol = createTypeChecker(
-	(x?: unknown) => typeof x === 'symbol'
-);
-/** Check if value(s) are Map objects */
-export const isMap = createTypeChecker((x?: unknown) => x instanceof Map);
-/** Check if value(s) are Set objects */
-export const isSet = createTypeChecker((x?: unknown) => x instanceof Set);
+export const isObj = createTypeChecker(callbacks.isObj);
+/** Check if all values are arrays, (uses Array.isArray) */
+export const isArr = createTypeChecker(callbacks.isArr);
+/** Check if typeof all values is 'function' */
+export const isFn = createTypeChecker(callbacks.isFn);
+/** Check if all values are null */
+export const isNull = createTypeChecker(callbacks.isNull);
+/** Check if all values are undefined */
+export const isUndef = createTypeChecker(callbacks.isUndef);
+/** Check if all values are undefined or null */
+export const isNullish = createTypeChecker(callbacks.isNullish);
+/** Check if all values are instances of DateConstructor */
+export const isDate = createTypeChecker(callbacks.isDate);
+/**
+ * Check if all values are instances of DateConstructor
+ * and contains valid dates
+ */
+export const isValidDate = createTypeChecker(callbacks.isValidDate);
+/** Check if typeof all values is 'symbol' */
+export const isSymbol = createTypeChecker(callbacks.isSymbol);
+/** Check if all values are instances of MapConstructor */
+export const isMap = createTypeChecker(callbacks.isMap);
+/** Check if all values are instances of SetConstructor */
+export const isSet = createTypeChecker(callbacks.isSet);
