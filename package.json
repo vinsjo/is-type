@@ -24,8 +24,7 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "dist/index.d.ts",
+      "callbacks": [
         "dist/callbacks.d.ts"
       ]
     }
