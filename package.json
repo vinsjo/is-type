@@ -9,28 +9,12 @@
   "umd:main": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.modern.js"
-    },
-    "./callbacks": {
-      "types": "./dist/callbacks.d.ts",
-      "require": "./dist/callbacks.cjs",
-      "import": "./dist/callbacks.mjs",
-      "default": "./dist/callbacks.modern.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "callbacks": [
-        "dist/callbacks.d.ts"
-      ]
-    }
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.mjs",
+    "default": "./dist/index.modern.js"
   },
   "scripts": {
-    "build": "microbundle src/*.ts",
+    "build": "microbundle src/index.ts",
     "dev": "microbundle watch",
     "lint": "npx eslint src --ext .ts",
     "prepublishOnly": "npm run build"
