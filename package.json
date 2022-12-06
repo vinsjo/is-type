@@ -18,6 +18,7 @@
         "dev": "microbundle watch",
         "lint": "eslint src/** __tests__/** --ext .ts",
         "format": "prettier --write .",
+        "format-staged": "pretty-quick --staged",
         "prepublishOnly": "npm run build",
         "test": "jest",
         "test-coverage": "jest --coverage",
