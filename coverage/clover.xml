@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1670328605803" clover="3.2.0">
+  <project timestamp="1670328605803" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="12" coveredconditionals="12" methods="15" coveredmethods="15" elements="49" coveredelements="49" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="index.ts" path="/Users/vincentsjogren/Desktop/x-is-type/src/index.ts">
+      <metrics statements="22" coveredstatements="22" conditionals="12" coveredconditionals="12" methods="15" coveredmethods="15"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="14" count="6" type="cond" truecount="3" falsecount="0"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="21" count="5" type="stmt"/>
+      <line num="23" count="4" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
+      <line num="27" count="5" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="4" type="stmt"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="46" count="5" type="cond" truecount="3" falsecount="0"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="49" count="5" type="cond" truecount="2" falsecount="0"/>
+    </file>
+  </project>
+</coverage>
