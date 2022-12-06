@@ -18,10 +18,11 @@
         "dev": "microbundle watch",
         "lint": "eslint src/** __tests__/** --ext .ts",
         "format": "prettier --write .",
-        "format-staged": "pretty-quick --staged",
-        "prepublishOnly": "npm run build",
         "test": "jest",
-        "test-coverage": "jest --coverage",
+        "test:coverage": "jest --coverage",
+        "pre-commit": "npm test && pretty-quick --staged",
+        "pre-push": "npm test && npm run lint",
+        "prepublishOnly": "npm run pre-push && npm run build",
         "prepare": "husky install"
     },
     "files": [
