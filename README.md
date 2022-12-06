@@ -97,16 +97,16 @@ isDate(new Date());
 isDate(Date.now());
 // => false
 
-/** 
+/**
  * Check if value is an instance of DateConstructor
  * and contains valid dates
  */
- isValidDate(new Date(1970, 1, 1))
- // => true
- isValidDate(new Date("hello"))
- // => false
- 
- /** Check if typeof value is 'symbol' */
+isValidDate(new Date(1970, 1, 1));
+// => true
+isValidDate(new Date('hello'));
+// => false
+
+/** Check if typeof value is 'symbol' */
 isSymbol(Symbol(123));
 // => true
 isSymbol(123);
@@ -115,7 +115,7 @@ isSymbol(123);
 /** Check if value is an instance of MapConstructor */
 isMap(new Map());
 // => true
-isMap({foo: "bar"});
+isMap({ foo: 'bar' });
 // => false
 
 /** Check if value is an instance of SetConstructor */
