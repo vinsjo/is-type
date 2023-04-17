@@ -14,7 +14,7 @@
         "default": "./dist/index.modern.js"
     },
     "scripts": {
-        "build": "microbundle src/index.ts",
+        "build": "microbundle src/index.ts --compress --no-sourcemap",
         "dev": "microbundle watch",
         "lint": "eslint src/** __tests__/** --ext .ts",
         "format": "prettier --write .",
