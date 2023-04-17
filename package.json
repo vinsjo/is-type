@@ -14,7 +14,7 @@
         "default": "./dist/index.modern.js"
     },
     "scripts": {
-        "build": "microbundle src/index.ts --compress --no-sourcemap",
+        "build": "del-cli dist && microbundle src/index.ts --compress --no-sourcemap",
         "dev": "microbundle watch",
         "lint": "eslint src/** __tests__/** --ext .ts",
         "format": "prettier --write .",
@@ -32,6 +32,7 @@
         "@jest/globals": "^29.3.1",
         "@typescript-eslint/eslint-plugin": "latest",
         "@typescript-eslint/parser": "latest",
+        "del-cli": "^5.0.0",
         "eslint": "latest",
         "husky": "^8.0.0",
         "microbundle": "latest",
