@@ -1,8 +1,9 @@
-/** Check if typeof x is 'number' and x is not NaN
- * TS return type incorrect if x is NaN
+/**
+ * Check if typeof x is 'number' and, by default, x is not NaN
+ * @param invalidateNaN If set to false, returned value will be true even if x is NaN
  */
-export const isNum = (x: unknown): x is number =>
-    typeof x === 'number' && !Number.isNaN(x);
+export const isNum = (x: unknown, invalidateNaN?: boolean): x is number =>
+    typeof x === 'number' && (invalidateNaN === false || !Number.isNaN(x));
 /** Check if typeof x is 'string' */
 export const isStr = (x: unknown): x is string => typeof x === 'string';
 /** Check if typeof x is 'boolean' */
