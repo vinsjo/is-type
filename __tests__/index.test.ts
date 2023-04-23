@@ -59,6 +59,11 @@ createTest(
 
 createTest('isNull', args(undefined, false, 0, {}), args(null));
 createTest('isUndef', args(null, 0, false, NaN), args(undefined));
+createTest(
+    'isNullish',
+    args(false, 0, 'undefined', NaN),
+    args(null, undefined)
+);
 createTest('isDate', args({}, new Date().toString(), 0), args(new Date()));
 createTest('isSymbol', args({}, [], '', 1), args(Symbol(1)));
 createTest('isMap', args([], {}, new Set()), args());

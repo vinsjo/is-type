@@ -22,6 +22,9 @@ export const isFn = (x: unknown): x is (...args: unknown[]) => unknown =>
 export const isNull = (x: unknown): x is null => x === null;
 /** Check if x is undefined */
 export const isUndef = (x: unknown): x is undefined => typeof x === 'undefined';
+/** Check if x is undefined or null */
+export const isNullish = (x: unknown): x is undefined | null =>
+    x === null || typeof x === 'undefined';
 /** Check if x is instanceof DateConstructor */
 export const isDate = (x: unknown): x is Date => x instanceof Date;
 /** Check if typeof x is 'symbol' */
