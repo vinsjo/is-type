@@ -35,11 +35,7 @@ const createTest = (
     });
 };
 
-createTest(
-    'isNum',
-    [[''], [NaN], [NaN, true], [NaN, undefined], [NaN, 'false']],
-    [[1], [100], [NaN, false]]
-);
+createTest('isNum', args('', NaN), args(1, 100, Infinity));
 createTest('isStr', args(1, null, {}), args('', String()));
 createTest('isBool', args(null, undefined, '', 0), args(true, false));
 createTest('isObj', args(null, '', Symbol(1)), args({}, [], new Date()));
