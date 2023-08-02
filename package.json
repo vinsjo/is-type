@@ -11,7 +11,8 @@
     "exports": {
         "require": "./dist/index.cjs",
         "import": "./dist/index.mjs",
-        "default": "./dist/index.modern.js"
+        "default": "./dist/index.modern.js",
+        "types": "./dist/index.d.ts"
     },
     "scripts": {
         "build": "del-cli dist && microbundle src/index.ts --compress --no-sourcemap && npm run test:build",
