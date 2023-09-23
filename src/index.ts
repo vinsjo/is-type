@@ -8,9 +8,7 @@ export const isStr = (x: unknown): x is string => typeof x === 'string';
 /** Check if typeof x is 'boolean' */
 export const isBool = (x: unknown): x is boolean => typeof x === 'boolean';
 /** Check if typeof x is 'object', x is not null and x is instanceof Object */
-export const isObj = (
-    x: unknown
-): x is { [k: string | number | symbol]: unknown } =>
+export const isObj = (x: unknown): x is { [k: PropertyKey]: unknown } =>
     x !== null && typeof x === 'object' && x instanceof Object;
 /** Check if x is an array (uses Array.isArray) */
 export const isArr = (x: unknown): x is unknown[] => Array.isArray(x);
@@ -33,6 +31,17 @@ export const isMap = (x: unknown): x is Map<unknown, unknown> =>
     x instanceof Map;
 /** Check if x is instanceof SetConstructor */
 export const isSet = (x: unknown): x is Set<unknown> => x instanceof Set;
+
+/** Check if x is object and if x has no enumerable properties */
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function isEmptyObj(x: unknown): x is {};
+export function isEmptyObj(x: unknown[]): x is [];
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function isEmptyObj(x: unknown): x is {} {
+    if (!isObj(x)) return false;
+    for (const _ in x) return false;
+    return true;
+}
 
 // TS UNCERTAIN RETURN TYPES
 /**
