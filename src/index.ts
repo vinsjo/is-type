@@ -83,10 +83,10 @@ export function isValidDate(x: unknown) {
     return x instanceof Date && !Number.isNaN(x.getTime());
 }
 
-export type Falsy = null | undefined | false | 0 | '';
-
-/** Check if x is any falsy value */
-export const isFalsy = (x: unknown): x is Falsy => !x;
+type Falsy = null | undefined | false | 0 | '';
 
 /** Check if x is any non-falsy value */
 export const isTruthy = <T>(x: T | Falsy): x is Exclude<typeof x, Falsy> => !!x;
+
+/** Check if x is any falsy value */
+export const isFalsy = (x: unknown): x is Falsy => !x;

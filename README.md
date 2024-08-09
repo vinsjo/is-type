@@ -123,4 +123,16 @@ isSet(new Set());
 // => true
 isSet(new Array());
 // => false
+
+/** Check if x is any non-falsy value */
+isTruthy(1);
+// => true
+isTruthy(0);
+// => false
+
+/** Check if x is any falsy value */
+isFalsy(0);
+// => true
+isFalsy(1);
+// => false
 ```
