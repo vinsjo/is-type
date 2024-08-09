@@ -17,15 +17,15 @@ export const isObj = (x: unknown): x is { [k: PropertyKey]: unknown } =>
 /** Check if x is an array (uses Array.isArray) */
 export const isArr = (x: unknown): x is unknown[] => Array.isArray(x);
 
-/** Check if typeof x is 'function' */
+/** Check if typeof x is 'function' or x is instanceof Function */
 export const isFn = (x: unknown): x is (...args: unknown[]) => unknown =>
-    typeof x === 'function';
+    typeof x === 'function' || x instanceof Function;
 
 /** Check if x is null */
 export const isNull = (x: unknown): x is null => x === null;
 
 /** Check if x is undefined */
-export const isUndef = (x: unknown): x is undefined => typeof x === 'undefined';
+export const isUndef = (x: unknown): x is undefined => x === undefined;
 
 /** Check if x is undefined or null */
 export const isNullish = (x: unknown): x is undefined | null => x == null;
@@ -58,16 +58,35 @@ export function isEmptyObj(x: unknown): x is Record<PropertyKey, never> {
  * Check if typeof x is 'number', x is not
  * NaN and x is an integer
  */
-export const isInt = (x: unknown): x is number =>
-    typeof x === 'number' && x % 1 === 0;
+export function isInt(x: number): boolean;
+export function isInt(x: unknown): x is number;
+export function isInt(x: unknown) {
+    return typeof x === 'number' && x % 1 === 0;
+}
 
 /**
  * Check if typeof x is 'number', x is not
  * NaN and x is a float value
  */
-export const isFloat = (x: unknown): x is number =>
-    typeof x === 'number' && !Number.isNaN(x % 1) && x % 1 !== 0;
+export function isFloat(x: number): boolean;
+export function isFloat(x: unknown): x is number;
+export function isFloat(x: unknown) {
+    if (typeof x !== 'number') return false;
+    const r = x % 1;
+    return !Number.isNaN(r) && r !== 0;
+}
 
 /** Check if x is instanceof Date and contains a valid date */
-export const isValidDate = (x: unknown): x is Date =>
-    x instanceof Date && !Number.isNaN(x.getTime());
+export function isValidDate(x: Date): boolean;
+export function isValidDate(x: unknown): x is Date;
+export function isValidDate(x: unknown) {
+    return x instanceof Date && !Number.isNaN(x.getTime());
+}
+
+export type Falsy = null | undefined | false | 0 | '';
+
+/** Check if x is any falsy value */
+export const isFalsy = (x: unknown): x is Falsy => !x;
+
+/** Check if x is any non-falsy value */
+export const isTruthy = <T>(x: T | Falsy): x is Exclude<typeof x, Falsy> => !!x;

@@ -75,4 +75,12 @@ export const runTests = createRunTests({
         args({}, new Date().toString(), new Date('invalid')),
         args(new Date(), new Date('1970-01-01')),
     ],
+    isFalsy: [
+        args(1, ' ', true, [], {}),
+        args(null, undefined, false, 0, '', NaN),
+    ],
+    isTruthy: [
+        args(null, undefined, false, 0, '', NaN),
+        args(1, ' ', true, [], {}),
+    ],
 });
