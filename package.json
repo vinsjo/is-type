@@ -2,6 +2,17 @@
     "name": "x-is-type",
     "version": "1.2.9",
     "description": "A minimal package for simple type-checks of basic types",
+    "author": "Vincent Sjögren",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vinsjo/x-is-type"
+    },
+    "keywords": [
+        "ESM",
+        "CommonJS",
+        "typecheck"
+    ],
     "type": "module",
     "source": "./src/index.ts",
     "main": "./dist/index.cjs",
@@ -14,6 +25,9 @@
         "default": "./dist/index.modern.js",
         "types": "./dist/index.d.ts"
     },
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "del-cli dist && microbundle src/index.ts --compress --no-sourcemap && npm run test:build",
         "dev": "microbundle watch",
@@ -22,35 +36,29 @@
         "test": "jest index",
         "test:build": "jest build",
         "test:coverage": "jest --coverage",
-        "pre-commit": "npm test && pretty-quick --staged",
+        "pre-commit": "npm test && npx lint-staged",
         "pre-push": "npm test && npm run lint",
         "prepublishOnly": "npm run pre-push && npm run build",
         "prepare": "husky install"
     },
-    "files": [
-        "dist"
-    ],
     "devDependencies": {
         "@jest/globals": "^29.3.1",
-        "@typescript-eslint/eslint-plugin": "latest",
-        "@typescript-eslint/parser": "latest",
+        "@typescript-eslint/eslint-plugin": "^8.7.0",
+        "@typescript-eslint/parser": "^8.7.0",
         "del-cli": "^5.0.0",
-        "eslint": "latest",
+        "eslint": "^9.11.1",
         "husky": "^8.0.0",
-        "microbundle": "latest",
+        "lint-staged": "^15.2.10",
+        "microbundle": "^0.15.1",
         "prettier": "^2.8.0",
-        "pretty-quick": "^3.1.3",
         "ts-jest": "^29.0.3"
     },
-    "author": "Vincent Sjögren",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/vinsjo/x-is-type"
-    },
-    "keywords": [
-        "ESM",
-        "CommonJS",
-        "typecheck"
-    ]
+    "lint-staged": {
+        "*.{ts}": [
+            "eslint"
+        ],
+        "*.{ts,json}": [
+            "prettier --write"
+        ]
+    }
 }
