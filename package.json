@@ -129,7 +129,7 @@
     ],
     "scripts": {
         "build": "unbuild && npm run test:build",
-        "lint": "eslint src/** __tests__/** --ext .ts",
+        "lint": "eslint .",
         "format": "prettier --write .",
         "test": "jest index",
         "test:build": "jest build",
