@@ -20,17 +20,115 @@
     "umd:main": "./dist/index.umd.js",
     "types": "./dist/index.d.ts",
     "exports": {
-        "require": "./dist/index.cjs",
-        "import": "./dist/index.mjs",
-        "default": "./dist/index.modern.js",
-        "types": "./dist/index.d.ts"
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        },
+        "./isArr": {
+            "require": "./dist/isArr.cjs",
+            "import": "./dist/isArr.mjs",
+            "types": "./dist/isArr.d.ts"
+        },
+        "./isBool": {
+            "require": "./dist/isBool.cjs",
+            "import": "./dist/isBool.mjs",
+            "types": "./dist/isBool.d.ts"
+        },
+        "./isDate": {
+            "require": "./dist/isDate.cjs",
+            "import": "./dist/isDate.mjs",
+            "types": "./dist/isDate.d.ts"
+        },
+        "./isEmptyObj": {
+            "require": "./dist/isEmptyObj.cjs",
+            "import": "./dist/isEmptyObj.mjs",
+            "types": "./dist/isEmptyObj.d.ts"
+        },
+        "./isFalsy": {
+            "require": "./dist/isFalsy.cjs",
+            "import": "./dist/isFalsy.mjs",
+            "types": "./dist/isFalsy.d.ts"
+        },
+        "./isFloat": {
+            "require": "./dist/isFloat.cjs",
+            "import": "./dist/isFloat.mjs",
+            "types": "./dist/isFloat.d.ts"
+        },
+        "./isFn": {
+            "require": "./dist/isFn.cjs",
+            "import": "./dist/isFn.mjs",
+            "types": "./dist/isFn.d.ts"
+        },
+        "./isInt": {
+            "require": "./dist/isInt.cjs",
+            "import": "./dist/isInt.mjs",
+            "types": "./dist/isInt.d.ts"
+        },
+        "./isMap": {
+            "require": "./dist/isMap.cjs",
+            "import": "./dist/isMap.mjs",
+            "types": "./dist/isMap.d.ts"
+        },
+        "./isNull": {
+            "require": "./dist/isNull.cjs",
+            "import": "./dist/isNull.mjs",
+            "types": "./dist/isNull.d.ts"
+        },
+        "./isNullish": {
+            "require": "./dist/isNullish.cjs",
+            "import": "./dist/isNullish.mjs",
+            "types": "./dist/isNullish.d.ts"
+        },
+        "./isNum": {
+            "require": "./dist/isNum.cjs",
+            "import": "./dist/isNum.mjs",
+            "types": "./dist/isNum.d.ts"
+        },
+        "./isObj": {
+            "require": "./dist/isObj.cjs",
+            "import": "./dist/isObj.mjs",
+            "types": "./dist/isObj.d.ts"
+        },
+        "./isSet": {
+            "require": "./dist/isSet.cjs",
+            "import": "./dist/isSet.mjs",
+            "types": "./dist/isSet.d.ts"
+        },
+        "./isStr": {
+            "require": "./dist/isStr.cjs",
+            "import": "./dist/isStr.mjs",
+            "types": "./dist/isStr.d.ts"
+        },
+        "./isSymbol": {
+            "require": "./dist/isSymbol.cjs",
+            "import": "./dist/isSymbol.mjs",
+            "types": "./dist/isSymbol.d.ts"
+        },
+        "./isTruthy": {
+            "require": "./dist/isTruthy.cjs",
+            "import": "./dist/isTruthy.mjs",
+            "types": "./dist/isTruthy.d.ts"
+        },
+        "./isUndef": {
+            "require": "./dist/isUndef.cjs",
+            "import": "./dist/isUndef.mjs",
+            "types": "./dist/isUndef.d.ts"
+        },
+        "./isValidDate": {
+            "require": "./dist/isValidDate.cjs",
+            "import": "./dist/isValidDate.mjs",
+            "types": "./dist/isValidDate.d.ts"
+        },
+        "./types": {
+            "types": "./dist/types.d.ts"
+        }
     },
     "files": [
         "dist"
     ],
     "scripts": {
-        "build": "del-cli dist && microbundle src/index.ts --compress --no-sourcemap && npm run test:build",
-        "dev": "microbundle watch",
+        "build": "unbuild && npm run test:build",
         "lint": "eslint src/** __tests__/** --ext .ts",
         "format": "prettier --write .",
         "test": "jest index",
@@ -49,15 +147,15 @@
         "eslint": "^9.11.1",
         "husky": "^8.0.0",
         "lint-staged": "^15.2.10",
-        "microbundle": "^0.15.1",
         "prettier": "^2.8.0",
-        "ts-jest": "^29.0.3"
+        "ts-jest": "^29.0.3",
+        "unbuild": "^2.0.0"
     },
     "lint-staged": {
         "*.{ts}": [
             "eslint"
         ],
-        "*.{ts,json}": [
+        "*.{ts,js,cjs,json}": [
             "prettier --write"
         ]
     }
