@@ -1,5 +1,5 @@
 // @ts-check
-const { defineBuildConfig } = require('unbuild');
+import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
     rollup: {

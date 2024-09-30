@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { describe, expect, test } from '@jest/globals';
 import type * as src from '../src';
 
